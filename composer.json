@@ -1,0 +1,37 @@
+{
+    "name": "figuren-theater/deprecated__Figuren_Theater__v2",
+    "description": "(Old & deprecated) Core (v2.*) components for a WordPress multisite plattform like figuren.theater",
+    "type": "wordpress-muplugin",
+    "homepage": "https://websites.fuer.figuren.theater",
+    "keywords": ["wordpress", "composer", "theater", "altis"],
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "figuren.theater",
+            "email": "info@figuren.theater"
+        },
+        {
+            "name": "Carsten Bach",
+            "email": "mail@carsten-bach.de",
+            "homepage": "https://carsten-bach.de",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "info@figuren.theater",
+        "issues": "https://github.com/figuren-theater/deprecated__Figuren_Theater__v2/issues",
+        "source": "https://github.com/figuren-theater/deprecated__Figuren_Theater__v2"
+    },
+    "require": {
+        "php": ">=7.1",
+        "composer/installers": "^1.12"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    },
+    "extra": {
+        "installer-name": "Figuren_Theater"
+    }
+}

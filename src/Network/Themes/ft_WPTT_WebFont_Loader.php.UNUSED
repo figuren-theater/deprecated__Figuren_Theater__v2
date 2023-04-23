@@ -1,0 +1,67 @@
+<?php 
+declare(strict_types=1);
+
+namespace Figuren_Theater\Network\Themes;
+
+use Figuren_Theater\inc\EventManager;
+
+/**
+ * Make use of the magic "Webfont Loader" class
+ * which will download all used google fonts into
+ * local folders and registers the new css files
+ *
+ * Developed by the WordPress Themes Team
+ */
+class ft_WPTT_WebFont_Loader implements EventManager\SubscriberInterface
+{
+
+	/**
+	 * Returns an array of hooks that this subscriber wants to register with
+	 * the WordPress plugin API.
+	 *
+	 * @return array
+	 */
+	public static function get_subscribed_events() : array
+	{
+		return array(
+			'style_loader_tag' => ['rereference_google_fonts',10, 4],
+		);
+	}
+
+
+	public function rereference_google_fonts( string $tag, string $handle, string $href, string $media ) : string
+	{
+		if (!strpos( $href, 'google') && !strpos( $href, 'fonts.gstatic') )
+			return $tag;
+
+		// load original class
+		require_once  WPMU_PLUGIN_DIR . '/_ft_vendor/'.'wptt-webfont-loader/wptt-webfont-loader.php';
+
+		// load slightly modified version
+		// which comes without croned deletion 
+		// of the fonts folder
+		require_once  WPMU_PLUGIN_DIR . '/_ft_vendor/'.'WPTT_WebFont_Loader__no_cron_delete.php';
+		
+		// Whoop whoop
+		// 
+		// some cleanup on the url strings, 
+		// in case we have multiple urls
+		// to have them well-formed like in
+		// https://github.com/WPTT/webfont-loader#build-url-for-multiple-fonts
+		// 
+		// bad examples were in:
+		// - pacer
+		// - tove
+		// 
+		$corrected_href = str_replace( '&#038;family', '&family', $href );
+
+		$new_font_css = ft_get_webfont_url( $corrected_href );
+
+		//
+		$tag = str_replace( $href, $new_font_css, $tag );
+		
+		//
+		return $tag;
+	}
+
+}

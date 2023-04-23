@@ -1,0 +1,194 @@
+<?php
+declare(strict_types=1);
+
+namespace Figuren_Theater\Network\Post_Types;
+
+
+/**
+ * 
+ */
+if ( ! class_exists('PT_ft_job')) {
+
+	# TODO add nice feature flag
+	if (1==2)
+		// Init the class on priority 0 to avoid adding priority inside the class as default = 10
+		add_action( 'init', array( __NAMESPACE__.'\\PT_ft_job', 'init'), 0 );
+
+	/**
+	 * 
+	 */
+	class PT_ft_job extends PT_Base {
+
+		/**
+		 * The Class Object
+		 */
+		static private $class = null;
+
+		public static function init()
+		{
+			if ( null === self::$class )
+				self :: $class = new self;
+			return self :: $class;
+		}
+
+		function __construct()
+		{
+			parent::__construct();
+			add_action('init', function(){
+				add_filter( 
+					$this->pt.'_rewrite_rules', 
+					array( __NAMESPACE__.'\\PT_'.$this->pt, 'filter_rewrite_rules' )
+				);
+			});
+		}
+
+		protected function prepare_pt() : string
+		{
+			return $this->pt = 'ft_job';
+		}
+
+		protected function register_post_type__default_args() : array
+		{
+			return array(
+				'capability_type'     => 'post',
+				'supports'            => array(
+					'title',
+					'editor',
+					'author',
+					'thumbnail',
+					'excerpt',
+					'custom-fields',
+					'trackbacks',
+					'comments',
+					'revisions',
+#					'page-attributes',
+#					'post-formats',
+				),
+
+				'menu_icon'           => 'dashicons-id-alt',
+
+				'show_in_rest'        => true, // this in combination with  'supports' => array('editor') enables the Gutenberg editor
+				'hierarchical'        => false,
+				'description'         => '',
+				'taxonomies'          => array('post_tag','category', FT_GEOTAX ),
+
+				#
+				'has_archive' => false,
+
+				# a custom permalink structure 
+				'rewrite' => [
+					'permastruct' => '/%ft_job_slug%/%year%/%monthnum%/%ft_job%-%post_id%'
+				],
+
+			);
+		}
+
+		protected function register_extended_post_type__args() : array
+		{
+			return array(
+
+				#
+				'enter_title_here' => __('Enter Job Title'),
+
+				# Add the post type to the site's main RSS feed:
+				'show_in_feed' => true,
+
+				# Add the post type to the 'Recently Published' section of the dashboard:
+				'dashboard_activity' => true,
+
+				# Add some custom columns to the admin screen:
+				'admin_cols' => [
+#					'ft_job_thumb' => [
+#						'title'          => 'Image',
+#						'featured_image' => 'thumbnail'
+#					],
+##					'story_published' => [
+##						'title_icon'  => 'dashicons-calendar-alt',
+##						'meta_key'    => 'published_date',
+##						'date_format' => 'd/m/Y'
+##					],
+##					'story_genre' => [
+##						'taxonomy' => 'genre'
+##					],
+#					'tags' => [
+#						'title' => 'my tags'
+#					],
+				],
+
+				# Add some dropdown filters to the admin screen:
+				'admin_filters' => [
+					'ft_job_tags' => [
+						'title'    => '‼️ tags',
+						'taxonomy' => 'post_tag'
+					],
+					'ft_job_location' => [
+						'title'    => '🗺️ Location',
+						'taxonomy' => FT_GEOTAX
+					],
+#					'story_rating' => [
+#						'meta_key' => 'star_rating',
+#					],
+				],
+
+			);
+		}
+
+		protected function prepare_labels()
+		{
+			return $this->labels = array(
+
+				# Override the base names used for labels:
+				'singular' => 'Job',
+				'plural'   => 'Jobs',
+				'slug'     => 'jobs',
+
+			);
+		}
+
+		public function filter_rewrite_rules($rules)
+		{
+#wp_die(var_export($rules));
+#			return array();
+#			return $rules;
+			return array (
+				'jobs/[0-9]{4}/[0-9]{1,2}/[^/]+-[0-9]+/attachment/([^/]+)/?$' => 'index.php?attachment=$matches[1]',
+				'jobs/[0-9]{4}/[0-9]{1,2}/[^/]+-[0-9]+/attachment/([^/]+)/trackback/?$' => 'index.php?attachment=$matches[1]&tb=1',
+
+				'jobs/[0-9]{4}/[0-9]{1,2}/[^/]+-[0-9]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom|eo-events)/?$' => 'index.php?attachment=$matches[1]&feed=$matches[2]',
+				'jobs/[0-9]{4}/[0-9]{1,2}/[^/]+-[0-9]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom|eo-events)/?$' => 'index.php?attachment=$matches[1]&feed=$matches[2]',
+				'jobs/[0-9]{4}/[0-9]{1,2}/[^/]+-[0-9]+/attachment/([^/]+)/kommentar-seite-([0-9]{1,})/?$' => 'index.php?attachment=$matches[1]&cpage=$matches[2]',
+				'jobs/[0-9]{4}/[0-9]{1,2}/[^/]+-[0-9]+/attachment/([^/]+)/embed/?$' => 'index.php?attachment=$matches[1]&embed=true',
+				'jobs/([0-9]{4})/([0-9]{1,2})/([^/]+)-([0-9]+)/embed/?$' => 'index.php?year=$matches[1]&monthnum=$matches[2]&ft_job=$matches[3]&p=$matches[4]&embed=true',
+				'jobs/([0-9]{4})/([0-9]{1,2})/([^/]+)-([0-9]+)/trackback/?$' => 'index.php?year=$matches[1]&monthnum=$matches[2]&ft_job=$matches[3]&p=$matches[4]&tb=1',
+
+				'jobs/([0-9]{4})/([0-9]{1,2})/([^/]+)-([0-9]+)/feed/(feed|rdf|rss|rss2|atom|eo-events)/?$' => 'index.php?year=$matches[1]&monthnum=$matches[2]&ft_job=$matches[3]&p=$matches[4]&feed=$matches[5]',
+				'jobs/([0-9]{4})/([0-9]{1,2})/([^/]+)-([0-9]+)/(feed|rdf|rss|rss2|atom|eo-events)/?$' => 'index.php?year=$matches[1]&monthnum=$matches[2]&ft_job=$matches[3]&p=$matches[4]&feed=$matches[5]',
+				'jobs/([0-9]{4})/([0-9]{1,2})/([^/]+)-([0-9]+)/seite/?([0-9]{1,})/?$' => 'index.php?year=$matches[1]&monthnum=$matches[2]&ft_job=$matches[3]&p=$matches[4]&paged=$matches[5]',
+				'jobs/([0-9]{4})/([0-9]{1,2})/([^/]+)-([0-9]+)/kommentar-seite-([0-9]{1,})/?$' => 'index.php?year=$matches[1]&monthnum=$matches[2]&ft_job=$matches[3]&p=$matches[4]&cpage=$matches[5]',
+				'jobs/([0-9]{4})/([0-9]{1,2})/([^/]+)-([0-9]+)(?:/([0-9]+))?/?$' => 'index.php?year=$matches[1]&monthnum=$matches[2]&ft_job=$matches[3]&p=$matches[4]&page=$matches[5]',
+				'jobs/[0-9]{4}/[0-9]{1,2}/[^/]+-[0-9]+/([^/]+)/?$' => 'index.php?attachment=$matches[1]',
+				'jobs/[0-9]{4}/[0-9]{1,2}/[^/]+-[0-9]+/([^/]+)/trackback/?$' => 'index.php?attachment=$matches[1]&tb=1',
+
+				'jobs/[0-9]{4}/[0-9]{1,2}/[^/]+-[0-9]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom|eo-events)/?$' => 'index.php?attachment=$matches[1]&feed=$matches[2]',
+				'jobs/[0-9]{4}/[0-9]{1,2}/[^/]+-[0-9]+/([^/]+)/(feed|rdf|rss|rss2|atom|eo-events)/?$' => 'index.php?attachment=$matches[1]&feed=$matches[2]',
+				'jobs/[0-9]{4}/[0-9]{1,2}/[^/]+-[0-9]+/([^/]+)/kommentar-seite-([0-9]{1,})/?$' => 'index.php?attachment=$matches[1]&cpage=$matches[2]',
+				'jobs/[0-9]{4}/[0-9]{1,2}/[^/]+-[0-9]+/([^/]+)/embed/?$' => 'index.php?attachment=$matches[1]&embed=true',
+
+#				'jobs/([0-9]{4})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom|eo-events)/?$' => 'index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]',
+#				'jobs/([0-9]{4})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom|eo-events)/?$' => 'index.php?year=$matches[1]&monthnum=$matches[2]&feed=$matches[3]',
+#				'jobs/([0-9]{4})/([0-9]{1,2})/embed/?$' => 'index.php?year=$matches[1]&monthnum=$matches[2]&embed=true',
+#				'jobs/([0-9]{4})/([0-9]{1,2})/seite/?([0-9]{1,})/?$' => 'index.php?year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]',
+#				'jobs/([0-9]{4})/([0-9]{1,2})/kommentar-seite-([0-9]{1,})/?$' => 'index.php?year=$matches[1]&monthnum=$matches[2]&cpage=$matches[3]',
+#				'jobs/([0-9]{4})/([0-9]{1,2})/?$' => 'index.php?year=$matches[1]&monthnum=$matches[2]',
+
+#				'jobs/([0-9]{4})/feed/(feed|rdf|rss|rss2|atom|eo-events)/?$' => 'index.php?year=$matches[1]&feed=$matches[2]',
+#				'jobs/([0-9]{4})/(feed|rdf|rss|rss2|atom|eo-events)/?$' => 'index.php?year=$matches[1]&feed=$matches[2]',
+#				'jobs/([0-9]{4})/embed/?$' => 'index.php?year=$matches[1]&embed=true',
+#				'jobs/([0-9]{4})/seite/?([0-9]{1,})/?$' => 'index.php?year=$matches[1]&paged=$matches[2]',
+#				'jobs/([0-9]{4})/kommentar-seite-([0-9]{1,})/?$' => 'index.php?year=$matches[1]&cpage=$matches[2]',
+#				'jobs/([0-9]{4})/?$' => 'index.php?year=$matches[1]',
+			);
+		}
+
+	} // END Class PT_ft_job
+} // endif class_exists

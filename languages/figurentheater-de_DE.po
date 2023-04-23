@@ -1,0 +1,526 @@
+# Copyright (C) 2022 Carsten Bach
+# This file is distributed under the MIT.
+msgid ""
+msgstr ""
+"Project-Id-Version: figuren.theater NETWORK | Overhead collection 2020.06.27\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-07 15:02+0100\n"
+"PO-Revision-Date: 2022-06-07 15:10+0100\n"
+"Last-Translator: Carsten Bach\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: WP-CLI 2.5.0\n"
+"X-Domain: figurentheater\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Poedit-Language: de_DE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ./..\n"
+
+#: ../src/Coresites/Post_Types/Post_Type__ft_feature.php:204
+#, fuzzy
+msgctxt "singular post_type label"
+msgid "Feature"
+msgstr "Feature"
+
+#: ../src/Coresites/Post_Types/Post_Type__ft_feature.php:205
+#, fuzzy
+msgctxt "plural post_type label"
+msgid "Features"
+msgstr "Features"
+
+#: ../src/Coresites/Post_Types/Post_Type__ft_feature.php:278
+msgid "Feature Title"
+msgstr "Feature Titel"
+
+#: ../src/Coresites/Post_Types/Post_Type__ft_feature.php:343
+msgid "All Tags"
+msgstr "Alle Schlagworte"
+
+#: ../src/Coresites/Post_Types/Post_Type__ft_feature.php:347
+msgid "All Milestones"
+msgstr "Alle Meilensteine"
+
+#: ../src/Coresites/Post_Types/Post_Type__ft_level.php:40
+msgctxt "singular post_type label"
+msgid "Level"
+msgstr "Level"
+
+#: ../src/Coresites/Post_Types/Post_Type__ft_level.php:41
+msgctxt "plural post_type label"
+msgid "Level"
+msgstr "Level"
+
+#: ../src/Coresites/Post_Types/Post_Type__ft_level.php:102
+#: ../src/Coresites/Post_Types/Post_Type__ft_level.php:124
+msgid "Level Icon"
+msgstr ""
+
+#: ../src/Coresites/Post_Types/Post_Type__ft_level.php:105
+msgid "Level Title"
+msgstr "Level Titel"
+
+#: ../src/Coresites/Post_Types/Post_Type__ft_level.php:137
+msgid "Registered"
+msgstr ""
+
+#: ../src/Coresites/Post_Types/Post_Type__ft_level.php:144
+msgid "Last Modified"
+msgstr "Zuletzt aktualisiert"
+
+#: ../src/Coresites/Post_Types/Post_Type__ft_level.php:155
+msgid "Features"
+msgstr "Features"
+
+#: ../src/FeaturesRepo/Feature__sichere_emails.php:42
+#: ../src/FeaturesRepo/Feature__sichere_emails.php:52
+msgid "Webmail"
+msgstr ""
+
+#: ../src/FeaturesRepo/Feature__sichere_emails.php:47
+#, php-format
+msgid "Manage your Inbox from everywhere using your Webmail Interface powered by our extraordinary hosting-partner <a href=\"%s\"><em>JPBerlin</em></a>."
+msgstr "Verwalte Deine Postfächer von überall - mit der Webmail-Oberfläche, bereitgestellt von unserem hervorragendem Hosting-Partner <a href=\"%s\"><em>JPBerlin</em></a>."
+
+#: ../src/FeaturesRepo/Feature__sichere_emails.php:61
+#: ../src/FeaturesRepo/Feature__sichere_emails.php:71
+msgid "Email Management"
+msgstr "Email Verwaltung"
+
+#: ../src/FeaturesRepo/Feature__sichere_emails.php:66
+#, php-format
+msgid "Manage your Email-Adresses from everywhere using your Management Interface powered by our extraordinary hosting-partner <a href=\"%s\"><em>JPBerlin</em></a>."
+msgstr "Verwalte Deine Email-Adressen von überall - mit der Verwaltung, bereitgestellt von unserem hervorragendem Hosting-Partner <a href=\"%s\"><em>JPBerlin</em></a>."
+
+#: ../src/FeaturesRepo/Feature__ueberregionale_inhalte.php:42
+msgid "All Locations"
+msgstr "Alle Regionen"
+
+#: ../src/inc/Geo/ft_geo_options_bridge.php:53
+msgid "Deutschland"
+msgstr ""
+
+#: ../src/inc/Geo/ft_geo_options_bridge.php:54
+msgid "Österreich"
+msgstr ""
+
+#: ../src/inc/Geo/ft_geo_options_bridge.php:55
+msgid "Schweiz"
+msgstr ""
+
+#: ../src/Network/Admin_UI/Admin_Footer.php:76
+#, php-format
+msgctxt "%1$s = website, %2$s = version number, %3$s WordPress Version Number"
+msgid "Your %1$s has Version %2$s and is made with 💕 and WordPress %3$s"
+msgstr "Deine %1$s hat Version %2$s und ist gemacht mit 💕 und WordPress %3$s"
+
+#: ../src/Network/Admin_UI/Admin_UIManager.php:181
+#, php-format
+msgctxt "%s = Plugin Name"
+msgid "Settings are managed for the whole network by %s"
+msgstr "Einstellungen für das gesamte Netzwerk werden bereitgestellt von %s"
+
+#: ../src/Network/Admin_UI/Color_Scheme.php:69
+msgid "figuren.theater"
+msgstr ""
+
+#: ../src/Network/Admin_UI/User_List.php:46
+msgid "All"
+msgstr "Alle"
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:90
+#, php-format
+msgid "Welcome to your dashboard %s!"
+msgstr ""
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:91
+msgid "Here you can place your custom text, give your customers instructions, place an ad or your contact information."
+msgstr ""
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:94
+msgid "Let's Get Started"
+msgstr ""
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:95
+msgid "Call me maybe !"
+msgstr ""
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:96
+#, php-format
+msgid "or, <a href=\"%s\">edit your site settings</a>"
+msgstr ""
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:99
+msgid "Next Steps"
+msgstr ""
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:102
+#: ../src/Network/Admin_UI/Welcome_Panel.php:105
+msgid "Edit your front page"
+msgstr ""
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:103
+#: ../src/Network/Admin_UI/Welcome_Panel.php:106
+msgid "Add additional pages"
+msgstr ""
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:107
+msgid "Add a blog post"
+msgstr ""
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:109
+msgid "Write your first blog post"
+msgstr ""
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:110
+msgid "Add an About page"
+msgstr ""
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:112
+msgid "View your site"
+msgstr ""
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:116
+msgid "More Actions"
+msgstr ""
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:118
+#, php-format
+msgid "Manage <a href=\"%1$s\">widgets</a> or <a href=\"%2$s\">menus</a>"
+msgstr ""
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:119
+msgid "Turn comments on or off"
+msgstr ""
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:120
+msgid "Learn more about getting started"
+msgstr ""
+
+#: ../src/Network/Admin_UI/Welcome_Panel.php:120
+msgid "http://codex.wordpress.org/First_Steps_With_WordPress"
+msgstr ""
+
+#: ../src/Network/Features/UtilityFeaturesManager.php:133
+#, php-format
+msgctxt "%s = post_type singular name"
+msgid "Utility-Features of this %s"
+msgstr ""
+
+#: ../src/Network/Plugins/PluginsManager.php:529
+msgid "figuren.theater required"
+msgstr "figuren.theater Standard"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:296
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:374
+msgid "Production"
+msgstr "Produktion"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:297
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:373
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:405
+msgid "Productions"
+msgstr "Produktionen"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:375
+msgid "Add New"
+msgstr "Erstellen"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:376
+msgid "Add New Production"
+msgstr "Neue Produktion hinzufügen"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:377
+msgid "Edit Production"
+msgstr "Produktion bearbeiten"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:378
+msgid "New Production"
+msgstr "Neue Produktion"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:379
+msgid "View Production"
+msgstr "Produktion anzeigen"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:380
+msgid "View Productions"
+msgstr "Produktionen anzeigen"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:381
+msgid "Search Productions"
+msgstr "Produktionen durchsuchen"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:382
+msgid "No productions found."
+msgstr "Keine Produktionen gefunden."
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:383
+msgid "No productions found in trash."
+msgstr "Keine Produktionen im Papierkorb gefunden."
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:384
+msgid "Parent Production:"
+msgstr "Übergeordenete Produktion:"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:385
+msgid "All Productions"
+msgstr "Alle Produktionen"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:386
+msgid "Production Archives"
+msgstr "Produktions Archiv"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:387
+msgid "Production Attributes"
+msgstr "Produktions Eigenschaften"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:388
+msgid "Insert into production"
+msgstr "Zu Produktion hinzufügen"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:389
+msgid "Uploaded to this production"
+msgstr "Zu dieser Produktion hochgeladen"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:390
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:421
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:443
+msgctxt "ft_production image"
+msgid "Image"
+msgstr "Bild"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:391
+msgctxt "ft_production image"
+msgid "Set image"
+msgstr "Titelbild auswählen"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:392
+msgctxt "ft_production image"
+msgid "Remove image"
+msgstr "Titelbild entfernen"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:393
+msgctxt "ft_production image"
+msgid "Use as image"
+msgstr "Als Titelbild verwenden"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:394
+msgid "Filter productions list"
+msgstr "Liste der Produktionen filtern"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:395
+msgid "Filter by date"
+msgstr "Nach Datum filtern"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:396
+#, fuzzy
+msgid "Productions list navigation"
+msgstr "Productions list navigation"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:397
+msgid "Productions list"
+msgstr "Liste der Produktionen"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:398
+msgid "Production published."
+msgstr "Produktion veröffentlicht."
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:399
+msgid "Production published privately."
+msgstr "Produktion als privat \"veröffentlicht\"."
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:400
+msgid "Production reverted to draft."
+msgstr "Produktion wieder als Entwurf gespeichert."
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:401
+msgid "Production scheduled."
+msgstr "Produktion geplant."
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:402
+msgid "Production updated."
+msgstr "Produktion aktualisiert."
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:403
+msgid "Production Link"
+msgstr "Link der Produktion"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:404
+msgid "A link to a production."
+msgstr ""
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:424
+msgid "Production Title"
+msgstr "Produktions Titel"
+
+#: ../src/Network/Post_Types/Post_Type__ft_production.php:452
+msgid "Premiere"
+msgstr "Premiere"
+
+#: ../src/Network/Post_Types/Post_Type__ft_site.php:363
+msgid "Website"
+msgstr ""
+
+#: ../src/Network/Post_Types/Post_Type__ft_site.php:364
+msgid "Websites"
+msgstr ""
+
+#: ../src/Network/Post_Types/Post_Type__ft_site.php:441
+#: ../src/Network/Post_Types/Post_Type__ft_site.php:468
+msgid "Site Icon"
+msgstr "Website Icon"
+
+#: ../src/Network/Post_Types/Post_Type__ft_site.php:444
+msgid "Site Title"
+msgstr "Website Titel"
+
+#: ../src/Network/Post_Types/Post_Type__ft_site.php:477
+msgid "URL Slug"
+msgstr ""
+
+#: ../src/Network/Post_Types/Post_Type__ft_site.php:511
+msgid "🗺️ All Locations"
+msgstr "🗺️ Alle Regionen"
+
+#: ../src/Network/Post_Types/Post_Type__ft_site.php:515
+msgid "All Features"
+msgstr "Alle Features"
+
+#: ../src/Network/Post_Types/Post_Type__ft_site.php:519
+msgid "All Utility Features"
+msgstr ""
+
+#: ../src/Network/Post_Types/Post_Type__ft_site.php:523
+msgid "All Level"
+msgstr "Alle Level"
+
+#: ../src/Network/Taxonomies/Taxonomy__ft_az_index.php:111
+msgid "AZ-Index"
+msgstr ""
+
+#: ../src/Network/Taxonomies/Taxonomy__ft_az_index.php:112
+msgid "AZ-Indexes"
+msgstr ""
+
+#: ../src/Network/Taxonomies/Taxonomy__ft_feature_shadow.php:40
+msgid "Feature"
+msgstr "Feature"
+
+#: ../src/Network/Taxonomies/Taxonomy__ft_geolocation.php:96
+#, php-format
+msgid "%%pt_plural%% from %%term_title%% %%sep%% %%page%% %%sep%% %%sitename%%"
+msgstr "%%pt_plural%% aus %%term_title%% %%sep%% %%page%% %%sep%% %%sitename%%"
+
+#: ../src/Network/Taxonomies/Taxonomy__ft_geolocation.php:97
+#, php-format
+msgid "%%sitename%% in %%term_hierarchy%%"
+msgstr "%%sitename%% in %%term_hierarchy%%"
+
+#: ../src/Network/Taxonomies/Taxonomy__ft_geolocation.php:127
+msgid "Shows City, State or Country"
+msgstr "Zeigt Stadt, Bundesland oder Land"
+
+#: ../src/Network/Taxonomies/Taxonomy__ft_geolocation.php:166
+msgid "Location"
+msgstr "Region"
+
+#: ../src/Network/Taxonomies/Taxonomy__ft_geolocation.php:167
+msgid "Locations"
+msgstr "Regionen"
+
+#: ../src/Network/Taxonomies/Taxonomy__ft_level_shadow.php:45
+#: ../src/Network/Taxonomies/Taxonomy__ft_level_shadow.php:46
+msgid "Level"
+msgstr "Level"
+
+#: ../src/Network/Taxonomies/Taxonomy__ft_site_shadow.php:109
+#, php-format
+msgid "%%sitename%% in %%ft_geolocation_last%% %%sep%% %%term_description%%"
+msgstr "%%sitename%% in %%ft_geolocation_last%% %%sep%% %%term_description%%"
+
+#: ../src/Network/Taxonomies/Taxonomy__ft_site_shadow.php:246
+msgid "Updated"
+msgstr "Aktualisiert"
+
+#: ../src/PluginsRepo/impressum.php:242
+#, php-format
+msgctxt "%s is a Link to the promoting site"
+msgid "%s will promote your content for"
+msgstr "%s wird Deine Inhalte verteilen für "
+
+#: ../src/PluginsRepo/image_source_control_isc.php:131
+msgid "Source:"
+msgstr "Quelle:"
+
+#: ../src/PluginsRepo/koko_analytics.php:170
+msgid "Usage statistics - GDPR compliant"
+msgstr "Zugriffszahlen - DSGVO konform"
+
+#: ../src/PluginsRepo/todo_block.php:50
+msgid "Todo list"
+msgstr "Todo Liste"
+
+#: ../src/PluginsRepo/wordpress_seo.php:466
+#, php-format
+msgid "%%POSTLINK%% was published first on %%BLOGLINK%%"
+msgstr "%%POSTLINK%% wurde erstmals veröffentlicht unter %%BLOGLINK%%"
+
+#: ../src/PluginsRepo/wordpress_seo.php:468
+#, php-format
+msgid "using the machines of %1$s"
+msgstr "mit Hilfe der Maschinen von %1$s"
+
+#: ../src/PluginsRepo/wordpress_seo.php:517
+msgid "Error 404: Page not found"
+msgstr "Fehler 404: Seite nicht gefunden"
+
+#: ../src/PluginsRepo/wordpress_seo.php:518
+msgid "Archives for"
+msgstr "Archiv für"
+
+#: ../src/PluginsRepo/wordpress_seo.php:519
+msgid "You searched for"
+msgstr "Du suchtest nach"
+
+#: ../src/PluginsRepo/wordpress_seo.php:521
+#, php-format
+msgid "%%name%%s publications at %%sitename%% %%page%%"
+msgstr "%%name%%s Veröffentlichungen auf %%sitename%% %%page%%"
+
+#: ../src/PluginsRepo/wordpress_seo.php:524
+#, php-format
+msgid "You searched for %%searchphrase%%, %%page%% %%sep%% %%sitename%%"
+msgstr "Deine Suche nach %%searchphrase%%, %%page%% %%sep%% %%sitename%%"
+
+#: ../src/PluginsRepo/wordpress_seo.php:525
+#, php-format
+msgid "%%term404%% not found on %%sitename%%"
+msgstr "%%term404%% ist bei %%sitename%% nicht zu finden"
+
+#: ../src/PluginsRepo/wordpress_seo.php:527
+#, php-format
+msgid "All publications for %%sitename%% written by %%name%%. %%user_description%%"
+msgstr "Alle Veröffentlichungen auf %%sitename%% veröffentlicht von %%name%%. %%user_description%%"
+
+#: ../src/PluginsRepo/wordpress_seo.php:530
+#, php-format
+msgid "All publications for %%sitename%%"
+msgstr "Alle Veröffentlichungen auf %%sitename%%"
+
+#: ../src/PluginsRepo/wp_media_pro.php:53
+msgid "Media"
+msgstr "Medien"
+
+#: ../src/PluginsRepo/wp_media_pro.php:53
+msgid "Tags"
+msgstr "Schlagworte"
+
+#~ msgid "Image"
+#~ msgstr "Bild"
+
+#~ msgid "Zugriffszahlen - DSGVO konform"
+#~ msgstr "Zugriffszahlen - DSGVO konform"

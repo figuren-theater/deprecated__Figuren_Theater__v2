@@ -1,0 +1,198 @@
+<?php
+declare(strict_types=1);
+
+namespace Figuren_Theater\Network\Setup;
+
+use Figuren_Theater\inc\EventManager;
+
+use Figuren_Theater\Coresites\Post_Types;
+
+
+/**
+ * 		@todo 
+ *         - move signup from https://figuren.test/wp-signup.php to https://mein.figuren.test/wp-signup.php
+ *         - ... with custom URL for login, register, lostpasswd, etc.
+ *         - moderate signup
+ *         - set password on signup
+ *         - choose TLDs figuren.theater | puppen.theater
+ *         - Remove " Ich möche nur einen Benutzernamen, keine Website."
+ *         - template & design !!!
+ *         - choose level if more than one level is avail.
+ *         - registrierungslink in der email HTTPS
+ */
+class Site_Registration implements EventManager\SubscriberInterface
+{
+
+    /**
+     * Returns an array of hooks that this subscriber wants to register with
+     * the WordPress plugin API.
+     *
+     * @return array
+     */
+    public static function get_subscribed_events() : array
+    {
+        return array(
+            
+            // allow subdomains with 3 chars only
+    		'minimum_site_name_length' => 'minimum_site_name_length', 
+
+            // Add a 'level' input to the registration form.
+            // 
+            // 'signup_blogform' => 'add_extra_field_on_blog_signup', // FE?
+            
+            /**
+             * Fires at the end of the new site form in network admin.
+             *
+             * @since 4.5.0
+             */
+            'network_site_new_form' => 'add_extra_field_on_blog_signup', // BE
+
+
+
+            // 'admin_init' => [ 'debug_ft_Site_Registration', 42 ],
+        );
+    }
+
+
+	public function minimum_site_name_length( Int $length ) : Int
+	{
+		return 3;
+	}
+
+
+
+    // Add text field on blog signup form
+    public function add_extra_field_on_blog_signup() {
+ 
+        ?>
+        <table class="form-table" role="presentation">
+        <tbody><!-- 
+            <tr class="form-field">
+                <th scope="row"><label for="ft_level"><?php _e( 'LEVEL ID von websites.fuer.f.t' ); ?> <span class="required">*</span></label></th>
+                <td><input style="max-width:25em;" name="ft_level" type="number" class="regular-text" id="ft_level"  aria-describedby="site-ft_level" /></td>
+            </tr> -->
+            <tr class="form-field">
+                <th scope="row"><label for="<?php echo Post_Types\Post_Type__ft_level::NAME; ?>"><?php _e( 'LEVEL ID von websites.fuer.f.t', 'figurentheater' ); ?></label></th>
+                <td><?php echo $this->get_ft_level_select(); ?></td>
+            </tr>
+        </tbody></table>
+        <?php
+    }
+
+    protected function ft_level_select()
+    {
+        // not avail. via composer, 
+        // so we have to require it usually
+        if (file_exists( WPMU_PLUGIN_DIR . '/_ft_vendor/wp_dropdown_posts/wp_dropdown_posts.php' ) )
+            require_once WPMU_PLUGIN_DIR . '/_ft_vendor/wp_dropdown_posts/wp_dropdown_posts.php';
+        
+        if ( ! function_exists( 'wp_dropdown_posts' ) )
+            return '';
+
+        $ft_level_dropdown_args = [
+            // 'selected'              => FALSE,
+            // 'pagination'            => FALSE,
+            'posts_per_page'        => 25,
+            'post_status'           => 'publish',
+            'cache_results'         => TRUE,
+            'cache_post_meta_cache' => TRUE,
+            'echo'                  => 0,
+            'select_name'           => Post_Types\Post_Type__ft_level::NAME,
+            'id'                    => Post_Types\Post_Type__ft_level::NAME,
+            // 'class'                 => '',
+            'show'                  => 'post_title',
+            // 'show_callback'         => NULL,
+            'show_option_all'       => 'Choose ft_level as receipe.',
+            // 'show_option_none'      => 'No ft_level avail. :(',
+            // 'option_none_value'     => '',
+            // 'multi'                 => FALSE,
+            // 'value_field'           => 'ID',
+            // 'order'                 => 'ASC',
+            // 'orderby'               => 'post_title',
+            
+
+            // WP_Query arguments
+            'post_type'             => Post_Types\Post_Type__ft_level::NAME,
+            'no_found_rows'         => true,
+        ];
+
+        return \wp_dropdown_posts( $ft_level_dropdown_args );
+
+    }
+
+    protected function get_ft_level_select()
+    {
+        // 1. switch to (a) sitemanagement-blog, which has the required 'ft_level'-data
+        // TODO // find nice way to get (one of many) sitemanagement-blogs
+        $sitemanagement_blog = array_flip( FT_CORESITES )['webs'];
+        \switch_to_blog( $sitemanagement_blog );
+
+        // 4. get 'ft_level'-posts
+        $ft_level_select = $this->ft_level_select();
+
+        // 5. restore_current_blog();
+        \restore_current_blog();
+
+        return $ft_level_select;
+    }
+
+
+    public function debug_ft_Site_Registration()
+    {
+        // 1. switch to (a) sitemanagement-blog, which has the required 'ft_level'-data
+        // TODO // find nice way to get (one of many) sitemanagement-blogs
+        $sitemanagement_blog = array_flip( FT_CORESITES )['webs'];
+        // \switch_to_blog( $sitemanagement_blog );
+
+        // 4. get 'ft_level'-posts
+        // 
+        // 4.1 Init our WP_Query wrapper
+       // $ft_level_query = \Figuren_Theater\FT_Query::init();
+
+
+        \do_action( 'qm/info', ' get "ft_level"-posts from site: {site}', [
+            'site' => $sitemanagement_blog,
+        ] );
+        // $ft_levels = $ft_level_query->find_many_by_type( 'ft_level', 'publish' );
+        // $ft_levels = \wp_list_pluck( $ft_levels, 'post_title', 'ID' );
+        // \do_action( 'qm/warning', $ft_levels );
+
+        \do_action( 'qm/emergency', $this->get_ft_level_select() );
+
+        // 5. restore_current_blog();
+        // \restore_current_blog();
+
+    }
+}
+
+\add_action( 
+    'Figuren_Theater\init', 
+    function ( $ft_site ) : void {
+// wp_die( var_export($ft_site, true ) );
+
+        if ( ! is_a( $ft_site, 'Figuren_Theater\ProxiedSite' ))
+            return;
+
+        // 0.2
+        // TODO // maybe move this into capsule for only mein.f.t
+        // $ft_site->EventManager->add_subscriber( new Site_Registration() ); // moved into Figuren_Theater\Onboarding\Sites
+        // $ft_site->EventManager->add_subscriber( new Site_Setup ); // moved into Figuren_Theater\Onboarding\Sites\Installation
+        // $ft_site->EventManager->add_subscriber( new User_Setup ); // moved into Figuren_Theater\Onboarding\Users
+
+
+// global $wp_actions;
+
+
+
+
+// wp_die( '<pre>'.var_export(  [
+    
+//     did_action( 'Figuren_Theater\loaded' ),
+//     $wp_actions,
+//     // \Figuren_Theater\FT::site(),
+//     __FILE__,
+
+// ] , true ) .'</pre>');
+    },
+    10
+);

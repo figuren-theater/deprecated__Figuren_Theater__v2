@@ -1,0 +1,41 @@
+<?php
+declare(strict_types=1);
+
+namespace Figuren_Theater\Network\Setup;
+use Figuren_Theater\Network\Admin_UI as Admin_UI;
+use Figuren_Theater\inc\EventManager as Inc;
+
+/**
+ * 	
+ */
+class User_Setup implements Inc\SubscriberInterface
+{
+	
+
+    /**
+     * Returns an array of hooks that this subscriber wants to register with
+     * the WordPress plugin API.
+     *
+     * @return array
+     */
+    public static function get_subscribed_events() : array
+    {
+        return array(
+        	'user_register' => 'set_default_admin_color_scheme',
+#            'init' => [ 'debug_ft_Options_Manager', 42 ],
+        );
+    }
+
+	public function set_default_admin_color_scheme( int $user_id ) {
+		$args = array(
+			'ID' => $user_id,
+			'admin_color' => Admin_UI\Color_Scheme::NAME
+		);
+		\wp_update_user( $args );
+	}
+
+
+	public function on_new_user( $user_id )
+	{
+	}
+}
