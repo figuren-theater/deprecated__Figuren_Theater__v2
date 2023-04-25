@@ -9,46 +9,6 @@ class Welcome_Panel implements EventManager\SubscriberInterface
 {
 
 
-
-
-// /**
-//  * Add a new welcome panel.
-//  *
-//  * @return string
-//  */
-// function odin_custom_welcome_panel() {
-// 	echo 'Sou o seu novo painel xD';
-// 	\remove_action( 'welcome_panel', 'wp_welcome_panel' );
-// }
-
-// add_action( 'welcome_panel', __NAMESPACE__. '\\odin_custom_welcome_panel' );
-
-
-// 	/**
-// 	 * Remove the default welcome dashboard message
-// 	 * 
-// 	 * Helper for Figuren_Theater\Network\Admin_UI\Welcome_Panel 
-// 	 * because the Admin_UI Classes are (at all) loaded too late 
-// 	 * to remove this action in time.
-// 	 */
-// function remove_default_welcome_panel(){ 
-// 	\remove_action( 'welcome_panel', 'wp_welcome_panel' );
-// 	\remove_action( 'welcome_panel', __NAMESPACE__. '\\odin_custom_welcome_panel' );
-// }
-// \add_action( 'muplugins_loaded', __NAMESPACE__. '\\remove_default_welcome_panel', 10 );
-// \add_action( 'init', __NAMESPACE__. '\\remove_default_welcome_panel', 10 );
-// \add_action( '_admin_menu', __NAMESPACE__. '\\remove_default_welcome_panel', 10 );
-// \add_action( 'admin_menu', __NAMESPACE__. '\\remove_default_welcome_panel', 10 );
-// \add_action( 'admin_init', __NAMESPACE__. '\\remove_default_welcome_panel', 10 );
-// \add_action( 'load-index.php', __NAMESPACE__. '\\remove_default_welcome_panel', 10 );
-// \add_action( 'wp', __NAMESPACE__. '\\remove_default_welcome_panel', 10 );
-// \add_action( 'admin_notices', __NAMESPACE__. '\\remove_default_welcome_panel', 10 );
-// \add_action( 'wp_dashboard_setup', __NAMESPACE__. '\\remove_default_welcome_panel', 10 );
-// \add_action( 'wp_dashboard_setup', __NAMESPACE__. '\\remove_default_welcome_panel', 110 );
-
-
-
-
 	/**
 	 * Returns an array of hooks that this subscriber wants to register with
 	 * the WordPress plugin API.

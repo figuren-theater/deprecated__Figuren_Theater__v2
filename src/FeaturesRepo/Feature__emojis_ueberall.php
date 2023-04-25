@@ -19,19 +19,7 @@ class Feature__emojis_ueberall extends Features\Feature__Abstract {
 		// and additionally 
 		// 1. add 'compressed emoji'
 		// 2. add 'emoji picker' block
-/*		\add_filter( 
-			'Figuren_Theater\\Network\\Plugins\\required_plugins\\feature_required', 
-			function( array $required_plugins ) : array {
-				return array_merge(
-					$required_plugins,
-					[
-						'compressed-emoji/compressed-emoji.php',
-						'emoji-toolbar/emoji-toolbar.php',
-					]
-				);
-			}
-		);*/
-		add_filter( 
+		\add_filter( 
 			'Figuren_Theater.config', 
 			function ( array $config ) : array {
 				$config['modules']['privacy']['compressed-emoji'] = true;
