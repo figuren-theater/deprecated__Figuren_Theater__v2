@@ -45,6 +45,7 @@ class Welcome_Panel implements EventManager\SubscriberInterface
 		\remove_action( 'welcome_panel', 'wp_welcome_panel' );
 
 		ob_start();
+		$this->styles();
 		\wp_welcome_panel();
 		$wp_welcome_panel = ob_get_contents();
 		ob_end_clean();
@@ -91,6 +92,16 @@ class Welcome_Panel implements EventManager\SubscriberInterface
 			return 'Guten Morgen';
 
 		return 'Nächtliche Grüße';
+	}
+
+	public function styles() {
+		?>
+<style type="text/css">
+	.welcome-panel{background-color:var(--wp-admin-theme-color-darker-10, #a00271)}
+	.welcome-panel-header-image path{fill:var(--wp-admin-theme-color-darker-20, #6d024d)!important;stroke: #d20394}
+	.welcome-panel .welcome-panel-column-container{background:#fbf9fa}
+</style>
+	<?php
 	}
 
 }
