@@ -201,7 +201,8 @@ class FT_wpdb
 	{
 		global $wpdb;
 
-		$query = $wpdb->prepare( "SELECT id FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = %s ORDER BY id ASC", Post_Types\Post_Type__ft_site::NAME );
+		// $query = $wpdb->prepare( "SELECT id FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = %s ORDER BY id ASC", Post_Types\Post_Type__ft_site::NAME );
+		$query = $wpdb->prepare( "SELECT id FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = %s ORDER BY id ASC LIMIT 1", Post_Types\Post_Type__ft_site::NAME );
 
 		$return = intval( $wpdb->get_var( $query ) );
 

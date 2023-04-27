@@ -237,6 +237,35 @@ class FeaturesManager extends SiteParts\SitePartsManagerAbstract {
 		if ( ! empty( $this->current_site_features ) )
 			return $this->current_site_features;
 
+		// Init our WP_Query wrapper
+		$ft_query = \Figuren_Theater\FT_Query::init();
+		$blog_id = \get_current_blog_id();
+
+		$_FeaturesManager = $this;
+		// $_FeaturesManager = \Figuren_Theater\FT::site()->FeaturesManager;
+		// $_FeaturesManager = new static;
+		// $_FeaturesManager = __CLASS__;
+
+		$_current_site_features = $ft_query->use_cache( 
+			"{$blog_id}__get_cached_current_site_features", 
+			'Figuren_Theater', 
+			[
+				$_FeaturesManager,
+				'get_cached_current_site_features'
+			]
+		);
+
+		// if it is no Error,
+		// but an empty or filled array,
+		// keep it
+		if ( is_array( $_current_site_features ) )
+			$this->current_site_features = $_current_site_features;
+
+		// and bye bye
+		return $this->current_site_features;
+	}
+	public function get_cached_current_site_features() : array {
+
 		// get our current site-post object
 		$_post_id = \Figuren_Theater\FT::site()->get_site_post_id();
 
@@ -255,19 +284,10 @@ class FeaturesManager extends SiteParts\SitePartsManagerAbstract {
 		// 2. 
 		// $_current_site_features = $_wpdb->get_terms_by_tax_and_post_id(
 		// use this 2x times faster version
-		$_current_site_features = $_wpdb->get_term_slugs_by_tax_and_post_id(
+		return $_wpdb->get_term_slugs_by_tax_and_post_id(
 			$this->taxonomies,
 			$_post_id
 		);
-
-		// if it is no Error,
-		// but an empty or filled array,
-		// keep it
-		if ( is_array( $_current_site_features ) )
-			$this->current_site_features = $_current_site_features;
-
-		// and bye bye
-		return $this->current_site_features;
 	}
 
 

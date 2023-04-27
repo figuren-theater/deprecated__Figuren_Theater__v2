@@ -216,10 +216,29 @@ class ProxiedSite
 	 * @return    int   'ft_site'-post->ID
 	 */
 	public function get_site_post_id() : int {
+		
 		// minimal caching
 		if ( \ms_is_switched() || 0 === $this->post_id) {
+
 			// get ID directly from the DB via $wpdb
-			$this->post_id = \Figuren_Theater\FT_wpdb::init()->get_ft_site_post_id();
+			// $this->post_id = \Figuren_Theater\FT_wpdb::init()->get_ft_site_post_id();
+  
+
+			$_wpdb = \Figuren_Theater\FT_wpdb::init();
+			// Init our WP_Query wrapper
+			$ft_query = FT_Query::init();
+			$blog_id = \get_current_blog_id();
+
+
+			$this->post_id = $ft_query->use_cache( 
+				"{$blog_id}__get_ft_site_post_id", 
+				'Figuren_Theater', 
+				[
+					$_wpdb,
+					'get_ft_site_post_id'
+				]
+			);
+
 		}
 
 		return $this->post_id;
@@ -301,44 +320,51 @@ class OOOLdSite
 
 
 #add_action( 'init', __NAMESPACE__.'\\debug_ft_feature', 42);
-#debug_ft_feature();
+// debug_ft_feature();
 
 
 function debug_ft_feature(){
-/*
+
 $_wpdb = \Figuren_Theater\FT_wpdb::init();
 // Init our WP_Query wrapper
 $ft_query = FT_Query::init();
+$blog_id = \get_current_blog_id();
 
+/*
 // run our well prepared WP_Query
   $start1 = microtime(true);
   // function code here
   $_wpdb->get_ft_site_post();
   $time_taken1 = microtime(true) - $start1;
-
+*/
 
 // run our well prepared WP_Query
   $start2 = microtime(true);
   // function code here
-  $_wpdb->get_ft_site_post_id();
+  $v2 = $_wpdb->get_ft_site_post_id();
   $time_taken2 = microtime(true) - $start2;
 
 
 // run our well prepared WP_Query
-  $start3 = microtime(true);
-  // function code here
-  $ft_query->find_first_ft_site();
-  $time_taken3 = microtime(true) - $start3;
+#  $start3 = microtime(true);
+#  // function code here
+#  $v3 = $ft_query->find_first_ft_site();
+#  $time_taken3 = microtime(true) - $start3;
 
 // run our well prepared WP_Query
-  $start4 = microtime(true);
-  // function code here
-  $v4 = $ft_query->use_cache( 'find_first_ft_site', 'Figuren_Theater', [$ft_query,'find_first_ft_site'] );
-  $time_taken4 = microtime(true) - $start4;
+#  $start4 = microtime(true);
+#  // function code here
+#  $v4 = $ft_query->use_cache( "{$blog_id}__find_first_ft_site", 'Figuren_Theater', [$ft_query,'find_first_ft_site'] );
+#  $time_taken4 = microtime(true) - $start4;
 
+
+  $start5 = microtime(true);
+  $v5 = $ft_query->use_cache( "{$blog_id}__get_ft_site_post_id", 'Figuren_Theater', [$_wpdb,'get_ft_site_post_id'] );
+  $time_taken5 = microtime(true) - $start5;
+/*
 */
 
-/*	wp_die(
+	wp_die(
 		'<pre>'.
 		var_export(
 			array(
@@ -350,16 +376,25 @@ $ft_query = FT_Query::init();
 				// typicall results looked like this 
 				// 						// time spent on functions (
 #				$time_taken1,			//  0 => 0.0003788471221923828,
-#				$time_taken2,			//  1 => 0.00019407272338867188,
-#				$time_taken3,			//  2 => 0.000885009765625,
-#				$time_taken4,			//  
+				// $v2,
+				// $start2,
+				number_format( $time_taken2, 6 ),			//  1 => 0.00019407272338867188,
+				// $v3,
+				#$start3,
+				#number_format( $time_taken3, 6 ),			//  2 => 0.000885009765625,
+				// $v4,
+				// $start4,
+				// number_format( $time_taken4, 6 ),			//  
+				// $v5,
+				// $start5,
+				number_format( $time_taken5, 6 ),			//  
 #				$v4,
 #				FT::site()->FeaturesManager,
 			),
 			true
 		).
 		'</pre>'
-	);*/
+	);
 #	\do_action( 'qm/debug','here we are');
 #	\do_action( 'qm/debug', FT::site()->has_feature('ohne-schlagworte') );
 #	\do_action( 'qm/debug', FT::site()->has_feature('managed-core-options') );
