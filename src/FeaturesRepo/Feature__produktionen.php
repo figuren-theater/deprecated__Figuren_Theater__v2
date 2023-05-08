@@ -54,7 +54,14 @@ class Feature__produktionen extends Features\Feature__Abstract {
 			'args', 
 			[
 				'public'             => true,
-				'rewrite'            => true,
+				'rewrite'            => [
+					'slug'              => Post_Types\Post_Type__ft_production::SLUG,
+					'with_front'        => false,
+					'pages'             => true,
+					'feeds'             => true,
+					'hierarchical'      => true,
+				],
+				'has_archive'        => Post_Types\Post_Type__ft_production::SLUG,
 				'dashboard_activity' => true,
 				'dashboard_glance'   => true,
 				'show_in_feed'       => true,

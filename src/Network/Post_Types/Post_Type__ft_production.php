@@ -413,7 +413,8 @@ global $post;
 			'rewrite' => false, // will be enabled on init|5 by 'Feature__produktionen'
 
 			#
-			'has_archive' => true,
+			// 'has_archive' => true,
+			'has_archive' => false, // will be enabled on init|5 by 'Feature__produktionen'
 
 			#
 			// 'can_export' => \current_user_can( 'manage_sites' ),
