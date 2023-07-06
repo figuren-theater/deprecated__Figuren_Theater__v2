@@ -218,7 +218,7 @@ class TAX_Shadow implements Inc\SubscriberInterface
 	 * @param  string  $taxonomy [description]
 	 * @return WP_Term|false           [description]
 	 */
-	public function get_associated_term( WP_Post $post, string $taxonomy ) : WP_Term|false
+	public function get_associated_term( $post, string $taxonomy ) : WP_Term|false
 	{
 		return Shadow_Taxonomy\get_associated_term( $post, $taxonomy );
 	}
