@@ -17,10 +17,13 @@ use function site_url;
 
 // @TODO do not hardcode ID
 // 
-// 793 Andocken & gut
-// 796 Theater online
+// 793 Andocken & gut (LOCAL)
+// 902 Andocken & gut (PRODUCTION)
+// 
+// 796 Theater online (LOCAL)
+// 903 Theater online (PRODUCTION)
 
-const FT_LEVEL_TO_INSTALL_FIRST = 793; // The 'ft_level' post->ID from websites.fuer.figuren.(.theater|.test) to use as blueprint.
+const FT_LEVEL_TO_INSTALL_FIRST = 902; // The 'ft_level' post->ID from websites.fuer.figuren.(.theater|.test) to use as blueprint.
 
 // const FORM_ID = 95; // formality post 'Anmelden & starten' at mein.figuren.test
 const FORM_ID = 219; // formality post 'Andocken & gut' at mein.figuren.test
