@@ -37,7 +37,7 @@ class Feature__core__mymanagement extends Features\Feature__Abstract
 		////////////////////////////////////////////////////////////////////////////
 		
 		\add_filter( 
-			'Figuren_Theater.config', 
+			'figuren_theater.config', 
 			function ( array $config ) : array {
 				$config['modules']['data']['distributor-remote-quickedit'] = true;
 				return $config;

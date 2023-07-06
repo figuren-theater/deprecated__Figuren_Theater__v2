@@ -106,7 +106,7 @@ class Feature__core__is_core_site extends Features\Feature__Abstract {
 		require WP_PLUGIN_DIR . '/ft_coresites/ft_coresites.php';
 
 		\add_filter( 
-			'Figuren_Theater.config', 
+			'figuren_theater.config', 
 			function ( array $config ) : array {
 				// used on heute.theater
 				$config['modules']['site_editing']['block-visibility']       = true;

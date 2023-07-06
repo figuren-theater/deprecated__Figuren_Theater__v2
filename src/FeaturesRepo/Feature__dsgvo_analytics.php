@@ -16,7 +16,7 @@ class Feature__dsgvo_analytics extends Features\Feature__Abstract
 	public function enable() : void {
 
 		add_filter( 
-			'Figuren_Theater.config', 
+			'figuren_theater.config', 
 			function ( array $config ) : array {
 				$config['modules']['privacy']['koko-analytics'] = true;
 				return $config;

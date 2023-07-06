@@ -16,7 +16,7 @@ class Feature__bildrechte_fairplay extends Features\Feature__Abstract
 	public function enable() : void {
 
 		add_filter( 
-			'Figuren_Theater.config', 
+			'figuren_theater.config', 
 			function ( array $config ) : array {
 				$config['modules']['site_editing']['image-source-control-isc'] = true;
 				return $config;

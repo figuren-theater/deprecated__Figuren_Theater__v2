@@ -12,7 +12,7 @@ class Feature__suche extends Features\Feature__Abstract {
 	public function enable() : void {
 
 		add_filter( 
-			'Figuren_Theater.config', 
+			'figuren_theater.config', 
 			function ( array $config ) : array {
 				$config['modules']['interactive']['search'] = true;
 				return $config;

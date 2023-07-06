@@ -14,7 +14,7 @@ class Feature__schicke_emails extends Features\Feature__Abstract
 	public function enable() : void {
 
 		\add_filter( 
-			'Figuren_Theater.config', 
+			'figuren_theater.config', 
 			function ( array $config ) : array {
 				$config['modules']['theming']['wp-better-emails'] = true;
 				return $config;

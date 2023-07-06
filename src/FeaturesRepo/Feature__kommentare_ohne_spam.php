@@ -14,7 +14,7 @@ class Feature__kommentare_ohne_spam extends Features\Feature__Abstract
 	public function enable() : void {
 
 		\add_filter( 
-			'Figuren_Theater.config', 
+			'figuren_theater.config', 
 			function ( array $config ) : array {
 				$config['modules']['interactive']['comments'] = true;
 				return $config;
@@ -32,7 +32,7 @@ class Feature__kommentare_ohne_spam extends Features\Feature__Abstract
 	public function disable() : void {
 
 		\add_filter( 
-			'Figuren_Theater.config', 
+			'figuren_theater.config', 
 			function ( array $config ) : array {
 				$config['modules']['interactive']['comments'] = false;
 				return $config;

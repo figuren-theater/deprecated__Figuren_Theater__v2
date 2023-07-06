@@ -63,7 +63,7 @@ class Feature__core__my_registration extends Features\Feature__Abstract {
 		add_action( 'Figuren_Theater\loaded', [$this,'modify_options'], 12 ); // after core added its options
 
 		add_filter( 
-			'Figuren_Theater.config', 
+			'figuren_theater.config', 
 			function ( array $config ) : array {
 				$config['modules']['interactive']['formality']      = true;
 				$config['modules']['onboarding']['wp-approve-user'] = true;

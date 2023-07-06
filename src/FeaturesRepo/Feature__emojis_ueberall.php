@@ -20,7 +20,7 @@ class Feature__emojis_ueberall extends Features\Feature__Abstract {
 		// 1. add 'compressed emoji'
 		// 2. add 'emoji picker' block
 		\add_filter( 
-			'Figuren_Theater.config', 
+			'figuren_theater.config', 
 			function ( array $config ) : array {
 				$config['modules']['privacy']['compressed-emoji'] = true;
 				$config['modules']['admin_ui']['emoji-toolbar']   = true;

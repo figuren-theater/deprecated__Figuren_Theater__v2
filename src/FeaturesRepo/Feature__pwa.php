@@ -14,7 +14,7 @@ class Feature__pwa extends Features\Feature__Abstract
 	public function enable() : void {
 
 		add_filter( 
-			'Figuren_Theater.config', 
+			'figuren_theater.config', 
 			function ( array $config ) : array {
 				$config['modules']['performance']['pwa'] = true;
 				return $config;

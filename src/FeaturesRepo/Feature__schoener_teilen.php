@@ -13,7 +13,7 @@ class Feature__schoener_teilen extends Features\Feature__Abstract
 
 	public function enable() : void {
 		\add_filter( 
-			'Figuren_Theater.config', 
+			'figuren_theater.config', 
 			function ( array $config ) : array {
 				$config['modules']['seo']['sharing-image'] = true;
 				return $config;
