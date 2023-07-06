@@ -247,10 +247,13 @@ function __create_ft_link_post( string $type, string $url, WP_User $user ) : voi
 		Taxonomies\Term__link_category__imprint::SLUG,
 	];
 
-	// if ( __is_ft_link_privacy_relevant( $url_short ) ) {
+	/**
+	 * @todo handle 3rd-parties domains correctly, to be able to set the privacy-term reliable for the given URL
+	 * 
 	if ( Post_Types\Post_Type__ft_link::__is_privacy_relevant( $url_short ) ) {
-		$_link_categories[] = Taxonomies\Term__link_category__privacy::SLUG; // only for 3rd-parties
 	}
+	 */
+		$_link_categories[] = Taxonomies\Term__link_category__privacy::SLUG; // only for 3rd-parties
 
 	// Add terms for 'Own content' and 'Imprint'
 	// to all of them
