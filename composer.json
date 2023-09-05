@@ -24,7 +24,7 @@
     },
     "require": {
         "php": ">=7.1",
-        "composer/installers": "^1.12"
+        "composer/installers": "^1.12 || ^2"
     },
     "config": {
         "allow-plugins": {
@@ -33,5 +33,10 @@
     },
     "extra": {
         "installer-name": "Figuren_Theater"
+    },
+    "autoload": {
+        "psr-4": {
+            "Figuren_Theater\\": "src/"
+        }
     }
 }
