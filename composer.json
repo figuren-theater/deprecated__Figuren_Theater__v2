@@ -1,7 +1,7 @@
 {
     "name": "figuren-theater/deprecated_figuren_theater_v2",
     "description": "(Old & deprecated) Core (v2.*) components for a WordPress multisite plattform like figuren.theater",
-    "type": "wordpress-muplugin",
+    "type": "wordpress-dropin",
     "homepage": "https://websites.fuer.figuren.theater",
     "keywords": ["wordpress", "composer", "theater", "altis"],
     "license": "GPL-3.0-or-later",
@@ -24,19 +24,17 @@
     },
     "require": {
         "php": ">=7.1",
-        "composer/installers": "^1.12 || ^2"
+        "composer/installers": "^1.12 || ^2",
+        "koodimonni/composer-dropin-installer": "^1.4"
     },
     "config": {
         "allow-plugins": {
             "composer/installers": true
         }
     },
-    "extra": {
-        "installer-name": "Figuren_Theater"
-    },
     "autoload": {
         "psr-4": {
-            "Figuren_Theater\\": "src/"
+            "Figuren_Theater\\": "mu-plugins/Figuren_Theater/src/"
         }
     }
 }
