@@ -15,6 +15,9 @@ namespace Figuren_Theater;
 
 
 \defined( 'ABSPATH' ) || exit;
+/*
+Disabled to go for autoloading via composer to allow phpstan to do its job on ft-options correct.
+
 
 require dirname( __FILE__ ) . '/Psr4AutoloaderClass.php';
 // instantiate the loader
@@ -25,6 +28,7 @@ $loader->register();
 $loader->addNamespace( __NAMESPACE__, dirname( __FILE__ ) . '/src', true );
 // $loader->addNamespace( __NAMESPACE__, dirname( __FILE__ ) . '/tests', true );
 
+*/
 
 // this is best-practice
 add_action( 'init', function() {
