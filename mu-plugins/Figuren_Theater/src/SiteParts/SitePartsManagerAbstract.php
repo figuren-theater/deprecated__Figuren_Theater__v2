@@ -25,7 +25,7 @@ abstract class SitePartsManagerAbstract implements SitePartsManagerInterface, Ev
 	/**
 	 * Collection of all our SiteParts
 	 * 
-	 * @var SitePartCollection
+	 * @var SitePartsCollectionInterface
 	 */
 	public $collection;
 
