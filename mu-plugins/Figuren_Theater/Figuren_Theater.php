@@ -3,7 +3,7 @@
 * Plugin Name:  figuren.theater NETWORK | Overhead collection
 * Description:  Collection of needed overhead for the whole figuren.theater network
 * Plugin URI:	https://figuren.theater
-* Version:      2022.09.05
+* Version:      2023.09.11
 * Author:       Carsten Bach
 * Author URI:   https://carsten-bach.de
 * License:      MIT
@@ -15,9 +15,6 @@ namespace Figuren_Theater;
 
 
 \defined( 'ABSPATH' ) || exit;
-/*
-Disabled to go for autoloading via composer to allow phpstan to do its job on ft-options correct.
-
 
 require dirname( __FILE__ ) . '/Psr4AutoloaderClass.php';
 // instantiate the loader
@@ -27,8 +24,6 @@ $loader->register();
 // register the base directories for the namespace prefix
 $loader->addNamespace( __NAMESPACE__, dirname( __FILE__ ) . '/src', true );
 // $loader->addNamespace( __NAMESPACE__, dirname( __FILE__ ) . '/tests', true );
-
-*/
 
 // this is best-practice
 add_action( 'init', function() {
@@ -45,7 +40,7 @@ require dirname( __FILE__ ) . '/src/inc/EventManager/EventManager.php';
 require dirname( __FILE__ ) . '/src/Network/Features/FeaturesManager.php';
 // require dirname( __FILE__ ) . '/src/Network/Plugins/PluginsManager.php'; // removed completely, 2023-02-06
 
-require WPMU_PLUGIN_DIR . '/FT/ft-options/plugin.php';
+// require WPMU_PLUGIN_DIR . '/FT/ft-options/plugin.php'; // moved into must-use-loader 2023-09-11
 
 
 require dirname( __FILE__ ) . '/src/Network/Themes/Themes_Manager.php';
