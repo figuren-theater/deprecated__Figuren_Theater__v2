@@ -2,6 +2,8 @@
 declare(strict_types=1);
 
 namespace Figuren_Theater\Network\Themes;
+
+use Figuren_Theater;
 use Figuren_Theater\SiteParts;
 
 use Figuren_Theater\inc\EventManager;
@@ -251,7 +253,7 @@ class Themes_Manager implements EventManager\SubscriberInterface {
 	{
 		return sprintf(
 			'<meta name="generator" content="%1$s" />',
-			'websites.fuer.figuren.theater ' . FT_PLATTFORM_VERSION
+			'websites.fuer.figuren.theater ' . Figuren_Theater\get_platform_version(),
 		);
 	}
 

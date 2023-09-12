@@ -78,7 +78,7 @@ class Admin_Footer implements EventManager\SubscriberInterface
 				'figurentheater'
 			),
 			'<em>website.fuer.figuren.theater</em>',
-			FT_PLATTFORM_VERSION,
+			Figuren_Theater\get_platform_version(),
 			$text
 		);
 	}
