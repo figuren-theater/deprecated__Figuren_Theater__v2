@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Figuren_Theater\Network\Admin_UI;
 
+use Figuren_Theater;
 use Figuren_Theater\inc\EventManager;
-
 
 class Admin_Footer implements EventManager\SubscriberInterface
 {
