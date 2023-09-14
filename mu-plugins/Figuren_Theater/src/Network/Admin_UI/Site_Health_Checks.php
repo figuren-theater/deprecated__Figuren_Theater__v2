@@ -23,7 +23,6 @@ use Figuren_Theater\inc\EventManager;
  */
 class Site_Health_Checks implements EventManager\SubscriberInterface {
 
-
 	/**
 	 * Returns an array of hooks that this subscriber wants to register with
 	 * the WordPress plugin API.
@@ -36,7 +35,6 @@ class Site_Health_Checks implements EventManager\SubscriberInterface {
 			'site_status_tests' => 'site_status_tests',
 		];
 	}
-
 
 	/**
 	 * Add or modify which site status tests are run on a site.
@@ -96,37 +94,46 @@ class Site_Health_Checks implements EventManager\SubscriberInterface {
 		// Important for all environments.
 		// ///////////////////////////////
 		
-		// Disable Test for: automatic background updates
-		if ( isset( $tests['async']['background_updates'] ) )
-			unset( $tests['async']['background_updates'] );
+		// Disable Test for: available disk space for updates.
+		if ( isset( $tests['direct']['available_updates_disk_space'] ) ) {
+				unset( $tests['direct']['available_updates_disk_space'] );
+		}
 		
+		// Disable Test for: automatic background updates.
+		if ( isset( $tests['async']['background_updates'] ) ) {
+				unset( $tests['async']['background_updates'] );
+		}
+	
+		// Disable Test for: Plugin Updates.
+		if ( isset( $tests['direct']['plugin_version'] ) ) {
+			unset( $tests['direct']['plugin_version'] );
+		}
+		
+		// Disable Test for: Theme Updates.
+		if ( isset( $tests['direct']['theme_version'] ) ) {
+			unset( $tests['direct']['theme_version'] );
+		}
+		
+		// Disable Test for: Automatic Theme & Plugin Updates.
+		if ( isset( $tests['direct']['plugin_theme_auto_updates'] ) ) {
+			unset( $tests['direct']['plugin_theme_auto_updates'] );
+		}
+	
 		// Chance to run away?
-		if ( 
-			'production' !== WP_ENVIRONMENT_TYPE 
-			&&
-			'staging' !== WP_ENVIRONMENT_TYPE 
-		)
+		if ( 'production' !== WP_ENVIRONMENT_TYPE &&
+			'staging' !== WP_ENVIRONMENT_TYPE
+		) {
 			return $tests;
+		}
 
 		// ////////////////////////////////////////////////////
 		// Important for 'production' & 'staging' environments.
 		// ////////////////////////////////////////////////////
 		
-		// Disable Test for: Plugin Updates
-		if ( isset( $tests['direct']['plugin_version'] ) )
-			unset( $tests['direct']['plugin_version'] );
-
-		// Disable Test for: Theme Updates
-		if ( isset( $tests['direct']['theme_version'] ) )
-			unset( $tests['direct']['theme_version'] );
-
-		// Disable Test for: Automatic Theme & Plugin Updates
-		if ( isset( $tests['direct']['plugin_theme_auto_updates'] ) )
-			unset( $tests['direct']['plugin_theme_auto_updates'] );
-
-		// Disable Test for: Reaching api.wordpress.org
-		if ( isset( $tests['async']['dotorg_communication'] ) )
-			unset( $tests['async']['dotorg_communication'] );
+		// Disable Test for: Reaching api.wordpress.org !
+		if ( isset( $tests['async']['dotorg_communication'] ) ) {
+				unset( $tests['async']['dotorg_communication'] );
+		}
 
 		return $tests;
 	}
