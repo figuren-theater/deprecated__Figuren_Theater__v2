@@ -34,7 +34,7 @@ class Feature__produktionen extends Features\Feature__Abstract {
 		// New way w/o PluginsManager
 		// ugly, but working (FOR NOW)
 		require WP_PLUGIN_DIR . '/theatrebase-production-subsites/theatrebase-production-subsites.php';
-		require WP_PLUGIN_DIR . '/theatrebase-production-blocks/theatrebase-production-blocks.php';
+		// require WP_PLUGIN_DIR . '/theatrebase-production-blocks/theatrebase-production-blocks.php'; // (SoC) moved into 'theater-production-blocks' plugin
 
 
 		// \add_filter( 'web_app_manifest', __NAMESPACE__ . '\\web_app_manifest' )
