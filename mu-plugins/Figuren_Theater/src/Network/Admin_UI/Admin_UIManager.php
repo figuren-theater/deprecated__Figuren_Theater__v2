@@ -105,7 +105,7 @@ class Admin_UIManager extends SiteParts\SitePartsManagerAbstract implements Even
 				new User_List(),
 				// new Admin_Bar(),
 				new Admin_Footer(),
-				new Site_Health_Checks(),
+				// new Site_Health_Checks(),
 				new Welcome_Panel(),
 			]
 		);
