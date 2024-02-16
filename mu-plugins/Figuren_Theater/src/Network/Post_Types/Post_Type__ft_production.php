@@ -347,6 +347,16 @@ global $post;
 				self::NAME 
 			) 
 		);*/
+
+		\add_post_type_support(
+			$this::NAME,
+			'post-type-templates',
+			[
+				'templates' => [
+					'blank.php' => \_x( 'Blank', 'Template Title', 'figurentheater' ),
+				],
+			]
+		);
 	}
 
 
