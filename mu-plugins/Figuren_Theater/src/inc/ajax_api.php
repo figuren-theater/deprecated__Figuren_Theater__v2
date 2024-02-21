@@ -31,6 +31,7 @@ class ajax_api
 {
 	
 	protected $rewrite_tag = '';
+	protected $rewrite_tag_url = '';
 	protected $regex = '';
 	protected $template_redirect_callback = '';
 	protected $rewrite_base = '';

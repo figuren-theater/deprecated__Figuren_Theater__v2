@@ -20,6 +20,9 @@ use function WP_Better_Emails\get_default_from_email;
  */
 class Feature__core__is_core_site extends Features\Feature__Abstract {
 
+	protected $non_default_siteoptions = [];
+	protected $non_managed_default_options = [];
+
 	const SLUG = 'core-is-core-site';
 
 	function __construct() {

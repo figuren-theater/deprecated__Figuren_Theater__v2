@@ -54,6 +54,8 @@ class ProxiedSite
 	 * in there respective properties.
 	 * 
 	 * @var subClass of SitePartsManagerInterface
+	 DO WE REALLY NEED TO PREPARE THEESE PROPS ??
+	  */
 	public $TaxonomiesManager;
 	public $Post_TypesManager;
 	public $FeaturesManager;
@@ -62,9 +64,8 @@ class ProxiedSite
 	public $Admin_UIManager;
 	public $PluginsManager;
 	public $EventManager;
+	public $Themes_Manager;
 
-	DO WE REALLY NEED TO PREPARE THEESE PROPS ??
-	 */
 
 
 	/**

@@ -30,7 +30,7 @@ class Taxonomy__ft_geolocation extends Taxonomy__Abstract implements EventManage
 
 	protected $menu_icon_charcode = 'f11d'; # https://developer.wordpress.org/resource/dashicons/#admin-site-alt
 
-
+	protected $TaxonomiesAutoTerms;
 	/**
 	 * Returns an array of hooks that this subscriber wants to register with
 	 * the WordPress plugin API.

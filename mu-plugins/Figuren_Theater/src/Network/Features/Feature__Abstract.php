@@ -3,18 +3,18 @@ declare(strict_types=1);
 
 namespace Figuren_Theater\Network\Features;
 
-
 /**
  * Features can be enabeled per site 
  * and work like capabilities for users.
  * 
  * They are independently from (yet, non-existing) 
  * blog-groups aka site-levels, which (should) work like user-roles
- *
  */
-abstract class Feature__Abstract implements Feature__Interface
-{
+abstract class Feature__Abstract implements Feature__Interface {
 
+	protected $option_name         = '';
+	protected $non_default_options = [];
+	protected $screen_ids          = [];
 	/**
 	 * We need for sure a slug
 	 * because we are acting with real 
@@ -22,8 +22,7 @@ abstract class Feature__Abstract implements Feature__Interface
 	 */
 	const SLUG = '';
 
-	public function get_slug() : string
-	{
+	public function get_slug(): string {
 		return $this::SLUG;
 	}
 
@@ -31,14 +30,12 @@ abstract class Feature__Abstract implements Feature__Interface
 	// to keep the possibility
 	// to create UtilityFeatures
 	// with just a SLUG
-	public function enable() : void {}
-	public function enable__on_admin() : void {}
+	public function enable(): void {}
+	public function enable__on_admin(): void {}
 
-	public function disable() : void
-	{
+	public function disable(): void {
 		// \Figuren_Theater\API::get('FEAT')->remove( $this->get_slug() ); // is this really needed
 	}
-
 }
 // NO NEED TO CALL THIS CLASS DIRECTLY
 // our 'Bootstrap_FeaturesRepo' Class takes care of it 

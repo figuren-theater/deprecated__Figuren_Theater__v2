@@ -29,6 +29,7 @@ class Feature__decisions_not_options extends Features\Feature__Abstract implemen
 	 * @var Array
 	 */
 	protected $core_options = [];
+	protected $core_Option_Synceds = [];
 	protected $core_ms_options = [];
 
 	protected $screen_ids = [];

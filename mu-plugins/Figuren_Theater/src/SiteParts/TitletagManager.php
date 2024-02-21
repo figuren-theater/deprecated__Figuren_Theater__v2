@@ -41,6 +41,8 @@ class TitletagManager
 	
 
 	protected $defaults = [];
+	protected $pt_defaults = [];
+	protected $tax_defaults = [];
 
 
 	protected $args = [];

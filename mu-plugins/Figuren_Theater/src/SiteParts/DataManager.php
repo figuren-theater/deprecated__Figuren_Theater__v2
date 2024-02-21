@@ -20,6 +20,7 @@ use Figuren_Theater\inc\EventManager;
 abstract class DataManager extends SitePartsManagerAbstract {
 
 	protected $registerer;
+	protected $TitletagManager;
 
 	function __construct( $registerer, SitePartsCollectionInterface $collection ) {
 
