@@ -111,9 +111,6 @@ class Feature__core__is_core_site extends Features\Feature__Abstract {
 		\add_filter( 
 			'figuren_theater.config', 
 			function ( array $config ) : array {
-				// used on heute.theater
-				$config['modules']['site_editing']['block-visibility']       = true;
-				$config['modules']['site_editing']['markdown-comment-block'] = true;
 				// used for 404 pages
 				$config['modules']['site_editing']['dinosaur-game']          = true;
 				// 
