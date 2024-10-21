@@ -83,7 +83,7 @@ class Feature__decisions_not_options extends Features\Feature__Abstract implemen
 			// READING /wp-admin/options-reading.php
 			// ///////////////////////////////////////
 
-				'show_on_front' => 'page',
+				// 'show_on_front' => 'page', #DISABLED - AS TOO RIGID (WIP oma.jr @ TT4)
 				// 'page_on_front' => '', // ID is created and set during Site_Setup
 		// TODO				'page_for_posts' => '', // TODO add correct IDs of pages created during setup
 				'posts_per_page' => 5,
