@@ -33,9 +33,13 @@ class Feature__produktionen extends Features\Feature__Abstract {
 		// 
 		// New way w/o PluginsManager
 		// ugly, but working (FOR NOW)
-		require WP_PLUGIN_DIR . '/theatrebase-production-subsites/theatrebase-production-subsites.php';
-		// require WP_PLUGIN_DIR . '/theatrebase-production-blocks/theatrebase-production-blocks.php'; // (SoC) moved into 'theater-production-blocks' plugin
-
+		// 
+		// DEACTIVATED 11/2024
+		// (SoC) now loaded as post type support, from ft-theater
+		// require WP_PLUGIN_DIR . '/theatrebase-production-subsites/theatrebase-production-subsites.php';
+		// 
+		// (SoC) moved into 'theater-production-blocks' plugin
+		// require WP_PLUGIN_DIR . '/theatrebase-production-blocks/theatrebase-production-blocks.php';
 
 		// \add_filter( 'web_app_manifest', __NAMESPACE__ . '\\web_app_manifest' )
 		\add_filter( 'web_app_manifest', [ $this, 'web_app_manifest' ] );
